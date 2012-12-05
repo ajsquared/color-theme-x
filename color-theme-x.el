@@ -1,9 +1,13 @@
 ;;; color-theme-x.el --- convert color themes to X11 resource settings
 
 ;; Copyright (C) 2003  Free Software Foundation, Inc.
+;; Copyright (C) 2012, 2013 Andrew Johnson <theonceandfutureajsquared@gmail.com>
 
-;; Author: Matthew Kennedy <mkennedy@killr.ath.cx>
+;; Version: 1.3
 ;; Keywords: convenience, faces, frames
+;; Author: Matthew Kennedy <mkennedy@killr.ath.cx>
+;; Maintainer: Andrew Johnson <theonceandfutureajsquared@gmail.com>
+;; URL: https://github.com/ajsquared/color-theme-x
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -21,8 +25,6 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;;; Commentary:
-
-;; $Id: color-theme-x.el,v 1.2 2004/01/04 03:58:15 mkennedy Exp $
 
 ;; Given the name of a color theme, write out the .Xresources
 ;; equivalent of the theme.  You would want to do this if you want to

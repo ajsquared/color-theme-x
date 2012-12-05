@@ -21,7 +21,7 @@ I'm working on making color-theme-x available in Marmalade.
 ## Usage ##
 
 1. M-x color-theme-x RET <name> RET
-2. This will create a buffer named *color-theme-xresources*.  Copy the
+2. This will create a buffer named \*color-theme-xresources\*.  Copy the
 contents of that buffer to your ~/.Xresources file.
 3. Run xrdb -merge ~/.Xresources
 

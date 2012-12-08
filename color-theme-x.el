@@ -62,8 +62,18 @@
 (require 'cl)
 (require 'time-stamp)
 
+(defgroup color-theme-x nil
+  "Convert color themes to .XResources"
+  :version 1.3
+  :group 'faces)
+
+(defcustom color-theme-x-resource-prefix "Emacs"
+  "The prefix for the generated properties."
+  :type 'string
+  :group 'color-theme-x)
+
 (defvar color-theme-x-color-theme-source nil
-  "*The full path to your color-theme.el.  
+  "*The full path to the source file for color themes.  
 If this variable is nil, then the default is to discover the path
 via `locate-library'")
 
@@ -80,8 +90,6 @@ via `locate-library'")
     (mouse-color . "pointerColor")
     (cursor-color . "cursorColor")
     (border-color . "borderColor")))
-
-(defvar color-theme-x-resource-prefix "Emacs")
 
 (defvar color-theme-x-output-buffer-name "*color-theme-xresources*")
 

@@ -6,6 +6,7 @@
 ;; Version: 1.3
 ;; Keywords: convenience, faces, frames
 ;; Author: Matthew Kennedy <mkennedy@killr.ath.cx>
+;; Author: Andrew Johnson <theonceandfutureajsquared@gmail.com>
 ;; Maintainer: Andrew Johnson <theonceandfutureajsquared@gmail.com>
 ;; URL: https://github.com/ajsquared/color-theme-x
 
@@ -43,12 +44,11 @@
 
 ;; Example usage:
 ;;
-;;     M-x color-theme-x RET hober RET
-;;     C-u M-x color-theme-x RET classic RET ~/elisp/color-theme.el RET
+;;     M-x color-theme-x RET classic RET ~/elisp/color-theme.el RET
 ;;
 ;; Then if necessary, adjust the output in the
 ;; *color-theme-xresources* to taste, copy it to your ~/.Xresources
-;; (don't use .Xdefaults -- its obsolete) and run:
+;; (don't use .Xdefaults -- it is obsolete) and run:
 ;;
 ;;     xrdb -load ~/.Xresources
 ;; or

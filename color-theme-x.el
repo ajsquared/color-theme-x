@@ -81,6 +81,8 @@ via `locate-library'")
     (cursor-color . "cursorColor")
     (border-color . "borderColor")))
 
+(defvar color-theme-x-resource-prefix "Emacs")
+
 (defvar color-theme-x-output-buffer-name "*color-theme-xresources*")
 
 (defvar color-theme-x-output-buffer nil)
@@ -144,7 +146,8 @@ via `locate-library'")
 	  (value (cdr a)))
       (let ((xresource-attribute (cdr (assoc attribute color-theme-x-supported-attributes))))
 	(when xresource-attribute
-	  (insert (format "Emacs.%s.attribute%s: %s\n" 
+	  (insert (format "%s.%s.attribute%s: %s\n"
+			  color-theme-x-resource-prefix
 			  face-name 
 			  xresource-attribute 
 			  (color-theme-x-lisp-to-resource value))))))))

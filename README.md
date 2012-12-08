@@ -25,7 +25,7 @@ I'm working on making color-theme-x available in Marmalade.
 contents of that buffer to your ~/.Xresources file.
 3. Run xrdb -merge ~/.Xresources
 
-Some pre-converted themes are available under themes/.  I plan to have
-all of the themes that come with color-theme.el converted and
-available here.  I'll happily include any other themes you send me as
-well.
+Some pre-converted themes are available under themes/.  I've included
+the theme I use as well as all of the themes in color-theme-library.el
+that ship with the color-theme package.  I'll happily include any
+other themes you send me as well.

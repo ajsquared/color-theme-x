@@ -72,11 +72,6 @@
   :type 'string
   :group 'color-theme-x)
 
-(defvar color-theme-x-color-theme-source nil
-  "*The full path to the source file for color themes.  
-If this variable is nil, then the default is to discover the path
-via `locate-library'")
-
 (defvar color-theme-x-supported-attributes 
   '((:foreground . "Foreground")
     (:background . "Background")
@@ -94,9 +89,6 @@ via `locate-library'")
 (defvar color-theme-x-output-buffer-name "*color-theme-xresources*")
 
 (defvar color-theme-x-output-buffer nil)
-
-(defun color-theme-x-locate-color-theme-source ()
-  (or color-theme-x-color-theme-source (locate-library "color-theme.el")))
 
 (defun color-theme-x-read-theme (name &optional source)
   (save-excursion
@@ -167,7 +159,6 @@ via `locate-library'")
   (interactive
    (list (read-string "Name of theme: ")
 	 (read-file-name "Path to theme source: ")))
-  (setq theme-source (or theme-source (color-theme-x-locate-color-theme-source)))
   (save-excursion
     (setq color-theme-x-output-buffer 
 	  (get-buffer-create (or color-theme-x-output-buffer-name "*color-theme-xresources*")))

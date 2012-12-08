@@ -30,7 +30,7 @@ this, you can either
 
 ## Usage ##
 
-1. M-x color-theme-x RET \<name\> RET
+1. M-x color-theme-x RET \<name\> RET \<path to file defining theme\>
 2. This will create a buffer named \*color-theme-xresources\*.  Copy the
 contents of that buffer to your ~/.Xresources file.
 3. Run xrdb -merge ~/.Xresources

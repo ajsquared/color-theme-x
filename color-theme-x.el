@@ -161,12 +161,12 @@ via `locate-library'")
 			  (color-theme-x-lisp-to-resource value))))))))
 
 (defun color-theme-x-basic-xresource-writer (name value)
-  (insert (format "Emacs.%s: %s\n" name value)))
+  (insert (format "%s.%s: %s\n" color-theme-x-resource-prefix name value)))
 
-(defun color-theme-x (theme-name &optional theme-source)
+(defun color-theme-x (theme-name theme-source)
   (interactive
    (list (read-string "Name of theme: ")
-	 (and current-prefix-arg (read-file-name "Path to theme source: "))))
+	 (read-file-name "Path to theme source: ")))
   (setq theme-source (or theme-source (color-theme-x-locate-color-theme-source)))
   (save-excursion
     (setq color-theme-x-output-buffer 

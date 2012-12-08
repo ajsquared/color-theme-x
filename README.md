@@ -25,12 +25,12 @@ changed; for example you may need to change it to Emacs23 for the
 properties to by applied to an Emacs 23 installation.  To support
 this, you can either
 
-1. Add (setq color-theme-x-resource-prefix "<prefix>") to your .emacs
+1. Add (setq color-theme-x-resource-prefix "\<prefix\>") to your .emacs
 2. M-x customize-group RET color-theme-x RET and customize the prefix there.
 
 ## Usage ##
 
-1. M-x color-theme-x RET <name> RET
+1. M-x color-theme-x RET \<name\> RET
 2. This will create a buffer named \*color-theme-xresources\*.  Copy the
 contents of that buffer to your ~/.Xresources file.
 3. Run xrdb -merge ~/.Xresources

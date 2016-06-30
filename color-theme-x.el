@@ -1,13 +1,13 @@
 ;;; color-theme-x.el --- convert color themes to X11 resource settings
 
 ;; Copyright (C) 2003  Free Software Foundation, Inc.
-;; Copyright (C) 2012, 2013 Andrew Johnson <theonceandfutureajsquared@gmail.com>
+;; Copyright (C) 2012-2016 Andrew Johnson <andrew@andrewjamesjohnson.com>
 
 ;; Version: 1.3
 ;; Keywords: convenience, faces, frames
 ;; Author: Matthew Kennedy <mkennedy@killr.ath.cx>
-;; Author: Andrew Johnson <theonceandfutureajsquared@gmail.com>
-;; Maintainer: Andrew Johnson <theonceandfutureajsquared@gmail.com>
+;; Author: Andrew Johnson <andrew@andrewjamesjohnson.com>
+;; Maintainer: Andrew Johnson <andrew@andrewjamesjohnson.com>
 ;; URL: https://github.com/ajsquared/color-theme-x
 
 ;; This file is free software; you can redistribute it and/or modify

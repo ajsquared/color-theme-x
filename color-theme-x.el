@@ -52,7 +52,7 @@
 ;;
 ;;     xrdb -load ~/.Xresources
 ;; or
-;;     xrdb -merge ~/.Xresources 
+;;     xrdb -merge ~/.Xresources
 ;;
 ;; (Depending on what is desired).  Then restart Emacs.
 ;;
@@ -72,7 +72,7 @@
   :type 'string
   :group 'color-theme-x)
 
-(defvar color-theme-x-supported-attributes 
+(defvar color-theme-x-supported-attributes
   '((:foreground . "Foreground")
     (:background . "Background")
     (:bold . "Bold")
@@ -91,12 +91,15 @@
 (defvar color-theme-x-output-buffer nil)
 
 (defun color-theme-x-read-theme (name &optional source)
+  "Read a color-theme theme file.
+Argument NAME Name of the theme to process.
+Optional argument SOURCE Path to the file from which to read the theme."
   (save-excursion
-    (with-temp-buffer 
+    (with-temp-buffer
       (insert-file-contents-literally (or source (color-theme-x-locate-color-theme-source)))
       (goto-char 0)
       (when (and (search-forward-regexp (concat "^(defun color-theme-" name) (point-max) t)
-		 (search-forward "color-theme-install")) 
+		 (search-forward "color-theme-install"))
 	(next-line 0)
 	(let ((function (read (current-buffer))))
 	  ;; muahahahaaa
@@ -104,6 +107,7 @@
 		  (cadadr function)))))))
 
 (defun color-theme-x-list-to-paired-list (list)
+  "Convert a LIST of attributes to a list of pairs."
   (let ((l list)
 	(resultant nil))
     (while l
@@ -114,19 +118,21 @@
     (nreverse resultant)))
 
 (defun color-theme-x-traverse-theme (theme function)
+  "Traverse a THEME definition, applying a FUNCTION to each element of the theme."
   (dolist (e theme)
-    (ignore-errors 
+    (ignore-errors
       (destructuring-bind (face-name ((true face-attributes))) e
 	(if (and (symbolp face-name)
 		 (eq true t)
 		 (listp face-attributes))
-	    ;; it looks like we have found something like 
+	    ;; it looks like we have found something like
 	    ;; (face-name ((t (:foreground "white"))))
-	    (funcall function 
+	    (funcall function
 		     (symbol-name face-name)
 		     (color-theme-x-list-to-paired-list face-attributes)))))))
 
 (defun color-theme-x-traverse-basic-theme (theme function)
+  "Traverse a basic THEME definition, applying a FUNCTION to each element of the theme."
   (dolist (e theme)
     (let ((name (cdr (assoc (car e) color-theme-x-supported-basic-attibutes)))
 	  (value (cdr e)))
@@ -134,13 +140,16 @@
 	(funcall function name (cdr e))))))
 
 (defun color-theme-x-lisp-to-resource (value)
-  "Convert lisp symbols to X resource values."
+  "Convert Lisp symbol VALUE to an X resource value."
   (cond ((eq value t)
 	 "on")
-	(t 
+	(t
 	 value)))
     
 (defun color-theme-x-xresource-writer (face-name attributes)
+  "Write a color theme face to an .Xresource file.
+Argument FACE-NAME Name of the face property to write to the .Xresource file.
+Argument ATTRIBUTES The attributes for the given FACE-NAME."
   (dolist (a attributes)
     (let ((attribute (car a))
 	  (value (cdr a)))
@@ -148,19 +157,23 @@
 	(when xresource-attribute
 	  (insert (format "%s.%s.attribute%s: %s\n"
 			  color-theme-x-resource-prefix
-			  face-name 
-			  xresource-attribute 
+			  face-name
+			  xresource-attribute
 			  (color-theme-x-lisp-to-resource value))))))))
 
 (defun color-theme-x-basic-xresource-writer (name value)
+  "Write a basic color theme property to an .Xresource file.
+Argument NAME Name of the property to write.
+Argument VALUE Value of the property to write."
   (insert (format "%s.%s: %s\n" color-theme-x-resource-prefix name value)))
 
 (defun color-theme-x (theme-name theme-source)
+  "Convert the color theme THEME-NAME from the file THEME-SOURCE to an .Xresources file."
   (interactive
    (list (read-string "Name of theme: ")
 	 (read-file-name "Path to theme source: ")))
   (save-excursion
-    (setq color-theme-x-output-buffer 
+    (setq color-theme-x-output-buffer
 	  (get-buffer-create (or color-theme-x-output-buffer-name "*color-theme-xresources*")))
     (set-buffer color-theme-x-output-buffer)
     (goto-char (point-max))

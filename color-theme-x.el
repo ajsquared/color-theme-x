@@ -101,7 +101,6 @@ Argument SOURCE Path to the file from which to read the theme."
       (goto-char 0)
       (when (and (search-forward-regexp (concat "^(defun color-theme-" name) (point-max) t)
 		 (search-forward "color-theme-install"))
-	(next-line 0)
 	(let ((function (read (current-buffer))))
 	  ;; muahahahaaa
 	  (cl-values (cl-cdadr function)

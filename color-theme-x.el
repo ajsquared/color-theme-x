@@ -90,13 +90,13 @@
 
 (defvar color-theme-x-output-buffer nil)
 
-(defun color-theme-x-read-theme (name &optional source)
+(defun color-theme-x-read-theme (name source)
   "Read a color-theme theme file.
 Argument NAME Name of the theme to process.
-Optional argument SOURCE Path to the file from which to read the theme."
+Argument SOURCE Path to the file from which to read the theme."
   (save-excursion
     (with-temp-buffer
-      (insert-file-contents-literally (or source (color-theme-x-locate-color-theme-source)))
+      (insert-file-contents-literally source)
       (goto-char 0)
       (when (and (search-forward-regexp (concat "^(defun color-theme-" name) (point-max) t)
 		 (search-forward "color-theme-install"))

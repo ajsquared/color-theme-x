@@ -167,6 +167,7 @@ Argument NAME Name of the property to write.
 Argument VALUE Value of the property to write."
   (insert (format "%s.%s: %s\n" color-theme-x-resource-prefix name value)))
 
+;;;###autoload
 (defun color-theme-x (theme-name theme-source)
   "Convert the color theme THEME-NAME from the file THEME-SOURCE to an .Xresources file."
   (interactive

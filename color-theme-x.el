@@ -59,7 +59,7 @@
 
 ;;; Code:
 
-(require 'cl)
+(require 'cl-lib)
 (require 'time-stamp)
 
 (defgroup color-theme-x nil
